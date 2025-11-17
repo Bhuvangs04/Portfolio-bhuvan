@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Clean and Minimal */
+    --background: 220 20% 98%;
+    --foreground: 220 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+
+    --primary: 220 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 70% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 190 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom Portfolio Colors */
+    --cyber-blue: 220 80% 55%;
+    --cyber-purple: 270 70% 60%;
+    --cyber-cyan: 190 90% 55%;
+    --neon-blue: 220 100% 65%;
+    --neon-purple: 270 100% 70%;
+    --neon-cyan: 190 100% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 80% 55%) 0%, hsl(270 70% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 80% 55% / 0.1) 0%, hsl(270 70% 60% / 0.1) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8) 0%, hsl(220 20% 98% / 0.9) 100%);
+    
+    /* Glass effects */
+    --glass-bg: hsl(0 0% 100% / 0.7);
+    --glass-border: hsl(220 20% 90% / 0.3);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(220 80% 55% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 20% 12% / 0.1);
+    --shadow-elevated: 0 20px 60px -15px hsl(220 20% 12% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Cyber Aesthetic */
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 22% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 22% 12%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 220 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 70% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 190 90% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 60%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 80% 60%;
+
+    /* Custom Portfolio Colors - Enhanced for dark mode */
+    --cyber-blue: 220 80% 60%;
+    --cyber-purple: 270 70% 65%;
+    --cyber-cyan: 190 90% 60%;
+    --neon-blue: 220 100% 70%;
+    --neon-purple: 270 100% 75%;
+    --neon-cyan: 190 100% 65%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 80% 60%) 0%, hsl(270 70% 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 80% 60% / 0.15) 0%, hsl(270 70% 65% / 0.15) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 22% 12% / 0.8) 0%, hsl(220 25% 10% / 0.9) 100%);
+    
+    /* Glass effects */
+    --glass-bg: hsl(220 22% 12% / 0.6);
+    --glass-border: hsl(220 20% 30% / 0.2);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsl(220 80% 60% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(220 25% 8% / 0.5);
+    --shadow-elevated: 0 20px 60px -15px hsl(220 80% 60% / 0.3);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer utilities {
+  /* Glass morphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Animated gradient background */
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      hsl(var(--cyber-blue)),
+      hsl(var(--cyber-purple)),
+      hsl(var(--cyber-cyan)),
+      hsl(var(--neon-blue))
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevated);
+  }
+}
