@@ -11,18 +11,18 @@ const footerLinks = [
     title: "Quick Links",
     links: [
       { name: "Home", href: "#home" },
-      { name: "About", href: "#about" },
       { name: "Projects", href: "#projects" },
+      { name: "AI Experience", href: "#ai-experience" },
       { name: "Contact", href: "#contact" },
     ],
   },
   {
     title: "Services",
     links: [
-      { name: "AI Integration", href: "#" },
-      { name: "Full-Stack Development", href: "#" },
-      { name: "Cloud Architecture", href: "#" },
-      { name: "Backend APIs", href: "#" },
+      { name: "Backend Engineering", href: "#backend-expertise" },
+      { name: "AI & RAG Systems", href: "#ai-experience" },
+      { name: "Full-Stack Development", href: "#projects" },
+      { name: "Cloud Architecture", href: "#tech-stack" },
     ],
   },
 ];
@@ -36,9 +36,10 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-4">Portfolio</h3>
+            <h3 className="text-2xl font-bold gradient-text mb-4">Bhuvan.</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Building AI-driven, cloud-ready, full-stack applications with clean architecture and scalable systems. Let's create something impactful.
+              Backend Engineer & AI Developer — building scalable applications,
+              real-time systems, and AI-powered products with clean architecture.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -79,7 +80,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground text-center md:text-left">
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
+            © {new Date().getFullYear()} Bhuvan G Sangappanavar. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Built with <Heart className="w-4 h-4 text-primary fill-primary" /> using React, TypeScript & Cloud-first Engineering

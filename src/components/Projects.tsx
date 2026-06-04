@@ -1,65 +1,137 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectModal } from "./ProjectModal";
+import { useAchievements } from "./Achievements";
 
 export interface Project {
   id: number;
   title: string;
   description: string;
   longDescription: string;
-  image: string;
   tags: string[];
   demoUrl: string;
   githubUrl: string;
   features: string[];
+  highlights: string[];
+  architecture: {
+    nodes: { name: string; description: string }[];
+  };
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Freelancer Marketplace Platform",
-    description: "A full freelancer marketplace with secure payments and cloud storage.",
+    title: "Freelancer Hub",
+    description:
+      "A full freelancer marketplace with secure payments, role-based access, and cloud storage — similar to Upwork/Fiverr.",
     longDescription:
-      "A complete freelancer marketplace similar to Upwork/Fiverr. The platform includes role-based authentication, project posting, bidding, dispute handling, real-time chat, and an advanced admin dashboard. Integrated Razorpay for secure payments and AWS S3 for file uploads, project documents, and profile images. Built with clean architecture and scalable backend services.",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800",
+      "A complete freelancer marketplace with role-based authentication, project posting, bidding, dispute handling, real-time chat, and an advanced admin dashboard. Integrated Razorpay for secure payments and AWS S3 for file uploads, project documents, and profile images. Built with clean architecture and scalable microservices.",
     tags: ["Next.js", "Node.js", "MongoDB", "Socket.io", "Razorpay", "AWS S3"],
     demoUrl: "https://freelancerhub-five.vercel.app/",
     githubUrl: "https://github.com/Bhuvangs04/Full-Stack-website",
     features: [
-      "Razorpay payment integration (secure checkout + webhook validation)",
+      "JWT Authentication & Role Based Access Control",
+      "Razorpay payment integration with webhook validation",
       "AWS S3 for uploads (profile, project files, invoices)",
-      "Freelancer & client workflows",
-      "Real-time chat & notifications",
+      "Real-time chat & notifications via Socket.io",
       "Advanced admin panel for dispute handling",
+      "Microservices Architecture",
     ],
+    highlights: [
+      "JWT Authentication",
+      "Role Based Access Control",
+      "Razorpay Integration",
+      "AWS S3 Storage",
+      "MongoDB",
+      "Microservices",
+    ],
+    architecture: {
+      nodes: [
+        { name: "React / Next.js", description: "Frontend with SSR & dynamic routing" },
+        { name: "API Gateway", description: "Central routing & auth middleware" },
+        { name: "Auth / Project / Payment Services", description: "Microservice architecture" },
+        { name: "MongoDB + AWS S3", description: "Database & cloud file storage" },
+      ],
+    },
   },
   {
     id: 2,
-    title: "Movie Streaming Website",
-    description: "A Netflix-style streaming site with cloud-based media delivery.",
+    title: "Streamify",
+    description:
+      "A Netflix-style video streaming platform with subscription system, cloud-based media delivery, and secure auth.",
     longDescription:
       "A high-performance movie streaming platform with multiple user profiles, personalized recommendations, watchlists, and category filtering. Integrated AWS S3 for storing and delivering video assets efficiently. Includes admin panel for uploading films, managing metadata, and handling large media files.",
-    image: "https://images.unsplash.com/photo-1600267175160-3c3d1c3e2c42?w=800",
-    tags: ["React", "Node.js", "AWS S3", "TMDB API", "JWT"],
+    tags: ["React", "Node.js", "MongoDB", "AWS S3", "Razorpay", "JWT"],
     demoUrl: "",
     githubUrl: "https://github.com/Bhuvangs04/Movie_Streaming_website",
     features: [
+      "Video Streaming Platform with adaptive delivery",
+      "Subscription System via Razorpay",
+      "Secure Authentication with JWT",
       "AWS S3 for video storage & optimized streaming",
       "Watchlist, continue-watching, multi-profile support",
-      "Admin content management",
-      "Responsive UI",
-      "Secure authentication",
+      "Admin content management dashboard",
     ],
+    highlights: [
+      "Video Streaming",
+      "Subscription System",
+      "Secure Authentication",
+      "AWS S3",
+      "Razorpay",
+    ],
+    architecture: {
+      nodes: [
+        { name: "React Frontend", description: "Responsive UI with video player" },
+        { name: "Node.js Backend", description: "REST API with auth & streaming logic" },
+        { name: "MongoDB", description: "User data, watchlists, metadata" },
+        { name: "AWS S3", description: "Video storage & delivery" },
+      ],
+    },
   },
   {
     id: 3,
-    title: "Banking Management System",
-    description: "A secure digital banking system with encrypted transactions.",
+    title: "AI Backend Internship",
+    description:
+      "Production-grade RAG pipelines, semantic search, and real-time AI systems built during internship at Anivale.",
     longDescription:
-      "A complete e-banking system built with Express and MySQL. Features  encrypted accounts, secure transactions, fund transfers, and admin monitoring. Razorpay is integrated for certain payment flows such as deposits and recurring utility payments. AWS S3 is used for secure document storage (KYC documents, statements, logs).",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800",
+      "Built production-grade AI and backend systems at Anivale. Developed RAG-based AI solutions with optimized context retrieval, improved model performance through fine-tuning & pruning, and built secure real-time chat architecture with encryption workflows. Implemented backend APIs and scalable service logic.",
+    tags: ["FastAPI", "Python", "WebSockets", "MongoDB", "Docker", "RAG"],
+    demoUrl: "",
+    githubUrl: "",
+    features: [
+      "RAG Pipelines with optimized context retrieval",
+      "Semantic Search with vector embeddings",
+      "FastAPI backend services",
+      "WebSocket real-time AI systems",
+      "MongoDB query optimization",
+      "Docker containerized workflows",
+    ],
+    highlights: [
+      "RAG Pipelines",
+      "Vector Embeddings",
+      "Semantic Search",
+      "FastAPI",
+      "WebSockets",
+      "MongoDB Optimization",
+    ],
+    architecture: {
+      nodes: [
+        { name: "Client / WebSocket", description: "Real-time AI interaction layer" },
+        { name: "FastAPI Backend", description: "AI orchestration & REST APIs" },
+        { name: "RAG Pipeline", description: "Vector embeddings & semantic search" },
+        { name: "MongoDB", description: "Optimized document storage" },
+      ],
+    },
+  },
+  {
+    id: 4,
+    title: "Banking Management System",
+    description:
+      "A secure digital banking system with encrypted transactions, fund transfers, and admin monitoring.",
+    longDescription:
+      "A complete e-banking system built with Express and MySQL. Features encrypted accounts, secure transactions, fund transfers, and admin monitoring. Razorpay is integrated for deposit and utility payments. AWS S3 is used for KYC document storage.",
     tags: ["Java", "Spring Boot", "MySQL", "Razorpay", "AWS S3"],
     demoUrl: "",
     githubUrl: "https://github.com/Bhuvangs04/banking-system",
@@ -70,32 +142,24 @@ const projects: Project[] = [
       "Audit logs + fraud detection checks",
       "Admin dashboard for full monitoring",
     ],
-  },
-  {
-    id: 4,
-    title: "Lost & Found Mobile App",
-    description: "A real-time lost & found app with cloud storage and smart alerts.",
-    longDescription:
-      "A mobile-first lost & found platform for students. Users can post items with images, track locations, chat with owners, and receive auto-match alerts. Uses AWS S3 to store images and Razorpay for optional premium visibility boosts. Includes real-time messaging, push notifications, and college email OTP login.",
-    image: "https://images.unsplash.com/photo-1523475496153-3d6cc00f29db?w=800",
-    tags: ["React Native", "Node.js", "MongoDB", "AWS S3", "Razorpay"],
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/Bhuvangs04/Lost-found-App-backend",
-    features: [
-      "College email OTP login",
-      "AWS S3 image uploads",
-      "Real-time chat + notifications",
-      "Auto-match suggestions for items",
-      "Optional Razorpay premium boosts for listing visibility",
-    ],
+    highlights: ["Java", "MySQL", "Encryption", "Razorpay", "AWS S3"],
+    architecture: {
+      nodes: [
+        { name: "Java / Spring Boot", description: "Backend with security framework" },
+        { name: "MySQL", description: "Relational data with transactions" },
+        { name: "Razorpay + AWS S3", description: "Payments & document storage" },
+      ],
+    },
   },
 ];
 
+export { projects };
 
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { unlock } = useAchievements();
 
   return (
     <>
@@ -113,82 +177,117 @@ export const Projects = () => {
               Featured <span className="gradient-text">Projects</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A selection of my recent work and personal projects
+              Production systems built with real engineering decisions
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="glass rounded-2xl overflow-hidden hover-lift cursor-pointer group"
-                onClick={() => setSelectedProject(project)}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -6 }}
+                className="glass rounded-2xl overflow-hidden cursor-pointer group relative"
+                onClick={() => {
+                  unlock("project_click");
+                  setSelectedProject(project);
+                }}
               >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+                {/* Top accent gradient */}
+                <div className="h-1 w-full bg-gradient-to-r from-primary to-secondary" />
 
-                {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {project.description}
-                  </p>
+                <div className="p-6 md:p-8">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+                    <div className="ml-4 mt-1">
+                      <Zap className="w-5 h-5 text-primary/50 group-hover:text-primary transition-colors" />
+                    </div>
+                  </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 3).map((tag) => (
+                  {/* Highlights */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.highlights.map((h) => (
                       <span
-                        key={tag}
-                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"
+                        key={h}
+                        className="text-xs px-3 py-1.5 rounded-full bg-primary/8 text-primary/80 border border-primary/10"
                       >
-                        {tag}
+                        {h}
                       </span>
                     ))}
                   </div>
 
-                  {/* Links */}
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.demoUrl, "_blank");
-                      }}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.githubUrl, "_blank");
-                      }}
-                    >
-                      <Github className="w-4 h-4" />
-                    </Button>
+                  {/* Architecture Preview */}
+                  <div className="glass rounded-xl p-4 mb-6">
+                    <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider font-medium">
+                      Architecture
+                    </p>
+                    <div className="flex items-center justify-center gap-2 flex-wrap">
+                      {project.architecture.nodes.map((node, i) => (
+                        <div key={node.name} className="flex items-center gap-2">
+                          <span className="text-xs font-mono text-primary/70 bg-primary/5 px-2 py-1 rounded">
+                            {node.name}
+                          </span>
+                          {i < project.architecture.nodes.length - 1 && (
+                            <span className="text-primary/30">→</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3">
+                    {project.demoUrl && (
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-primary/10 hover:bg-primary/20 text-primary border-0"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.demoUrl, "_blank");
+                        }}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Try It
+                      </Button>
+                    )}
+                    {project.githubUrl && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 border-muted-foreground/20"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          unlock("github_visit");
+                          window.open(project.githubUrl, "_blank");
+                        }}
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Button>
+                    )}
+                    {!project.demoUrl && !project.githubUrl && (
+                      <span className="text-xs text-muted-foreground italic">
+                        Private / NDA project
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
+
+        <div className="section-divider mt-20" />
       </section>
 
       <ProjectModal

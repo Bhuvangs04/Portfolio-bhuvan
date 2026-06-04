@@ -2,135 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  Portfolio Design System — Dark Navy Theme
+  Background:  #0F172A  →  HSL(222, 47%, 11%)
+  Cards:       #1E293B  →  HSL(217, 33%, 17%)
+  Primary:     #3B82F6  →  HSL(217, 91%, 60%)
+  Secondary:   #06B6D4  →  HSL(188, 95%, 43%)
+  Text:        #F8FAFC  →  HSL(210, 40%, 98%)
+  Muted Text:  #94A3B8  →  HSL(215, 16%, 65%)
 */
 
 @layer base {
   :root {
-    /* Light Mode - Clean and Minimal */
-    --background: 220 20% 98%;
-    --foreground: 220 20% 12%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 12%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 12%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 220 80% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 270 70% 60%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 188 95% 43%;
+    --secondary-foreground: 210 40% 98%;
 
-    --accent: 190 90% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 98%;
 
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 16% 65%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 220 80% 55%;
+    --border: 217 33% 22%;
+    --input: 217 33% 22%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    /* Custom Portfolio Colors */
-    --cyber-blue: 220 80% 55%;
-    --cyber-purple: 270 70% 60%;
-    --cyber-cyan: 190 90% 55%;
-    --neon-blue: 220 100% 65%;
-    --neon-purple: 270 100% 70%;
-    --neon-cyan: 190 100% 60%;
-    
+    /* Portfolio Accent Colors */
+    --cyber-blue: 217 91% 60%;
+    --cyber-cyan: 188 95% 43%;
+    --neon-blue: 217 100% 65%;
+    --neon-cyan: 188 100% 50%;
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 80% 55%) 0%, hsl(270 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 80% 55% / 0.1) 0%, hsl(270 70% 60% / 0.1) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8) 0%, hsl(220 20% 98% / 0.9) 100%);
-    
+    --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.15) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%);
+
     /* Glass effects */
-    --glass-bg: hsl(0 0% 100% / 0.7);
-    --glass-border: hsl(220 20% 90% / 0.3);
-    
+    --glass-bg: rgba(30, 41, 59, 0.6);
+    --glass-border: rgba(59, 130, 246, 0.12);
+
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(220 80% 55% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 20% 12% / 0.1);
-    --shadow-elevated: 0 20px 60px -15px hsl(220 20% 12% / 0.2);
+    --shadow-glow: 0 0 60px rgba(59, 130, 246, 0.25);
+    --shadow-cyan-glow: 0 0 60px rgba(6, 182, 212, 0.25);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --shadow-elevated: 0 20px 60px -15px rgba(59, 130, 246, 0.2);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    /* Dark Mode - Cyber Aesthetic */
-    --background: 220 25% 8%;
-    --foreground: 220 15% 95%;
-
-    --card: 220 22% 12%;
-    --card-foreground: 220 15% 95%;
-
-    --popover: 220 22% 12%;
-    --popover-foreground: 220 15% 95%;
-
-    --primary: 220 80% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 70% 65%;
-    --secondary-foreground: 0 0% 100%;
-
-    --accent: 190 90% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --muted: 220 20% 16%;
-    --muted-foreground: 220 15% 60%;
-
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 220 80% 60%;
-
-    /* Custom Portfolio Colors - Enhanced for dark mode */
-    --cyber-blue: 220 80% 60%;
-    --cyber-purple: 270 70% 65%;
-    --cyber-cyan: 190 90% 60%;
-    --neon-blue: 220 100% 70%;
-    --neon-purple: 270 100% 75%;
-    --neon-cyan: 190 100% 65%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 80% 60%) 0%, hsl(270 70% 65%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 80% 60% / 0.15) 0%, hsl(270 70% 65% / 0.15) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(220 22% 12% / 0.8) 0%, hsl(220 25% 10% / 0.9) 100%);
-    
-    /* Glass effects */
-    --glass-bg: hsl(220 22% 12% / 0.6);
-    --glass-border: hsl(220 20% 30% / 0.2);
-    
-    /* Shadows */
-    --shadow-glow: 0 0 60px hsl(220 80% 60% / 0.4);
-    --shadow-card: 0 10px 30px -10px hsl(220 25% 8% / 0.5);
-    --shadow-elevated: 0 20px 60px -15px hsl(220 80% 60% / 0.3);
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (unused but kept for shadcn compat) */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 22%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -140,7 +83,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
@@ -155,29 +98,37 @@ All colors MUST be HSL.
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-background;
+    background: #0F172A;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/30 rounded-full;
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/50;
+    background: rgba(59, 130, 246, 0.5);
   }
 }
 
 @layer utilities {
-  /* Glass morphism utilities */
+  /* Glass morphism */
   .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(59, 130, 246, 0.15);
   }
 
   /* Gradient text */
@@ -193,37 +144,41 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
   }
 
+  .neon-glow-cyan {
+    box-shadow: var(--shadow-cyan-glow);
+  }
+
   /* Animated gradient background */
   .animated-gradient {
     background: linear-gradient(
       -45deg,
-      hsl(var(--cyber-blue)),
-      hsl(var(--cyber-purple)),
-      hsl(var(--cyber-cyan)),
-      hsl(var(--neon-blue))
+      #3B82F6,
+      #06B6D4,
+      #3B82F6,
+      #0EA5E9
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
   }
 
   @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   /* Grid pattern background */
   .grid-pattern {
     background-image: 
-      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Dot pattern */
+  .dot-pattern {
+    background-image: radial-gradient(rgba(59,130,246,0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
   /* Hover lift effect */
@@ -234,5 +189,127 @@ All colors MUST be HSL.
   .hover-lift:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-elevated);
+  }
+
+  /* Terminal styling */
+  .terminal-font {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  }
+
+  .terminal-bg {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .terminal-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Architecture node */
+  .arch-node {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .arch-node:hover {
+    border-color: #3B82F6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+
+  .arch-connector {
+    background: linear-gradient(180deg, #3B82F6, #06B6D4);
+    width: 2px;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    background: linear-gradient(180deg, #3B82F6, #06B6D4, #3B82F6);
+    width: 2px;
+  }
+
+  .timeline-dot {
+    background: #3B82F6;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  }
+
+  /* Floating animation for tech cards */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes float-medium {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+
+  @keyframes float-fast {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), rgba(6,182,212,0.3), transparent);
+  }
+
+  /* Chat bubble */
+  .chat-bubble-user {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    border-radius: 18px 18px 4px 18px;
+  }
+
+  .chat-bubble-bot {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 18px 18px 18px 4px;
+  }
+
+  /* Contribution graph cell */
+  .contrib-cell {
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .contrib-cell:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Skill evidence badge */
+  .evidence-badge {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .evidence-badge:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  /* Roadmap check */
+  .roadmap-check {
+    color: #06B6D4;
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
   }
 }
