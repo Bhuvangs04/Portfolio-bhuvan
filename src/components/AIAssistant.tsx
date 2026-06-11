@@ -53,7 +53,7 @@ const knowledgeBase: { keywords: string[]; response: string }[] = [
   {
     keywords: ["contact", "email", "reach", "hire", "phone"],
     response:
-      "You can reach Bhuvan at:\n\n📧 Email: bhuvangs2004@gmail.com\n📱 Phone: +91 6362371070\n🔗 GitHub: github.com/Bhuvangs04\n💼 LinkedIn: linkedin.com/in/bhuvan-g-sangappanavar-403a022a2\n📍 Location: Bangalore, India",
+      "You can reach Bhuvan at:\n\n📧 Email: bhuvangs2004@gmail.com\n📱 Phone: +91 6362371070\n🔗 GitHub: github.com/Bhuvangs04\n💼 LinkedIn: https://www.linkedin.com/in/bhuvangsangappanavar\n📍 Location: Bangalore, India",
   },
   {
     keywords: ["education", "cgpa", "college", "university", "study"],

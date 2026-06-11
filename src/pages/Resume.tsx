@@ -83,7 +83,7 @@ const ResumePage = () => {
                     { icon: Phone, text: "+91 6362371070", href: "tel:+916362371070" },
                     { icon: MapPin, text: "Bangalore, India", href: "#" },
                     { icon: Github, text: "Bhuvangs04", href: "https://github.com/Bhuvangs04" },
-                    { icon: Linkedin, text: "LinkedIn", href: "https://www.linkedin.com/in/bhuvan-g-sangappanavar-403a022a2/" },
+                    { icon: Linkedin, text: "LinkedIn", href: "https://www.linkedin.com/in/bhuvangsangappanavar" },
                   ].map((item) => (
                     <a
                       key={item.text}

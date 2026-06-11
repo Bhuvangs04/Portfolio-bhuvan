@@ -119,7 +119,7 @@ export const Hero = () => {
               asChild
             >
               <a
-                href="https://drive.google.com/file/d/1YUODRsahCjnh1qbuNsDLLJEh2GULg2ne/view?usp=sharing"
+                href="https://drive.google.com/file/d/1SmqkKdmNAAkQUXGId_NirGP4sxHMRI6z/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -149,7 +149,7 @@ export const Hero = () => {
           >
             {[
               { icon: Github, href: "https://github.com/Bhuvangs04", label: "GitHub" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/bhuvan-g-sangappanavar-403a022a2/", label: "LinkedIn" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/bhuvangsangappanavar", label: "LinkedIn" },
               { icon: Mail, href: "mailto:bhuvangs2004@gmail.com", label: "Email" },
             ].map((social) => (
               <motion.a

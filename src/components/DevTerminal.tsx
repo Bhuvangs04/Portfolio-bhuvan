@@ -82,7 +82,7 @@ const commandResponses: Record<string, string[]> = {
     "  Email    → bhuvangs2004@gmail.com",
     "  Phone    → +91 6362371070",
     "  GitHub   → github.com/Bhuvangs04",
-    "  LinkedIn → linkedin.com/in/bhuvan-g-sangappanavar",
+    "  LinkedIn → linkedin.com/in/bhuvangsangappanavar",
     "  Location → Bangalore, India",
   ],
   resume: ["Opening resume... ↗"],
@@ -144,7 +144,7 @@ export const DevTerminal = () => {
 
       if (trimmed === "resume") {
         window.open(
-          "https://drive.google.com/file/d/1YUODRsahCjnh1qbuNsDLLJEh2GULg2ne/view?usp=sharing",
+          "https://drive.google.com/file/d/1SmqkKdmNAAkQUXGId_NirGP4sxHMRI6z/view?usp=sharing",
           "_blank"
         );
         await typeResponse(commandResponses.resume);

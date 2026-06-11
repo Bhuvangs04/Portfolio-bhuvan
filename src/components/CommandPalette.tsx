@@ -64,7 +64,7 @@ export const CommandPalette = () => {
       description: "Open resume PDF",
       category: "Actions",
       action: () => {
-        window.open("https://drive.google.com/file/d/1YUODRsahCjnh1qbuNsDLLJEh2GULg2ne/view?usp=sharing", "_blank");
+        window.open("https://drive.google.com/file/d/1SmqkKdmNAAkQUXGId_NirGP4sxHMRI6z/view?usp=sharing", "_blank");
         setIsOpen(false);
       },
     },
@@ -86,7 +86,7 @@ export const CommandPalette = () => {
       description: "Connect on LinkedIn",
       category: "Actions",
       action: () => {
-        window.open("https://www.linkedin.com/in/bhuvan-g-sangappanavar-403a022a2/", "_blank");
+        window.open("https://www.linkedin.com/in/bhuvangsangappanavar", "_blank");
         setIsOpen(false);
       },
     },

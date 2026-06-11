@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Bhuvangs04", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/bhuvan-g-sangappanavar-403a022a2/", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/bhuvangsangappanavar", label: "LinkedIn" },
   { icon: Mail, href: "mailto:bhuvangs2004@gmail.com", label: "Email" },
 ];
 
